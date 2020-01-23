@@ -11,6 +11,28 @@
 4. **Por seguridad** agregar el archivo al **.gitignore**
 5. Copiar el archivo de SERVICIO **notificaciones.service.ts** en la carpeta de servicios del proyecyo de angular o donde mejor convenga para el proyecto
 6. En **notificaciones.service.ts** modificar las rutas como convenga. Están configuradas por default para solicitar permisos de notificación por usuario
+7. Importar `AngularFireMessagingModule` al archivo **app.module.ts**
+
+```typescript
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "src/environments/environment";
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+@NgModule({
+    declarations: [],
+    imports: [
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule,
+        AngularFireMessagingModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 ## Usos
 
